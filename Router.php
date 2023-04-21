@@ -7,6 +7,11 @@ class Router {
     public $rutasGET = [];
     public $rutasPOST = [];
 
+
+    public function post($url, $fn) {
+        $this->rutasPOST[$url] = $fn;
+    }
+
     // Seteamos las urls con sus respectivas funciones
     public function get($url, $fn) {
         $this->rutasGET[$url] = $fn ;
@@ -19,6 +24,8 @@ class Router {
 
         if ($metodo === "GET") {
             $fn = $this->rutasGET[$urlActual] ?? null;
+        } elseif ($metodo === "POST") {
+            $fn = $this->rutasPOST[$urlActual] ?? null;
         }
 
         if ($fn) {
@@ -32,7 +39,13 @@ class Router {
     }
 
     // Muestra la vista
-    public function render($view) {
+    public function render($view, $datos = []) {
+
+        // Creamos variables con los nombre de las keys del arreglo asociativo $datos
+        // Así podemos utilizarlas en las vistas
+        foreach ($datos as $key => $value) {
+            $$key = $value;
+        }
 
         //Comenzamos a almacenar en memoria
         ob_start();

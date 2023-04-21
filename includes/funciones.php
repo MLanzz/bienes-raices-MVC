@@ -1,7 +1,7 @@
 <?php
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCIONES_URL', __DIR__ . 'funciones.php');
-define('CARPETA_IMAGENES', __DIR__ . '/../imagenes/');
+define('CARPETA_IMAGENES', $_SERVER["DOCUMENT_ROOT"] . "/imagenes/");
 
 function incluirTemplate( string $nombre, bool $inicio = false ) {
     include __DIR__ . "/template/{$nombre}.php";
@@ -60,4 +60,17 @@ function mostrarMensajeError($codigo) : string{
         }
     
     return $mensaje;
+}
+
+function validarORedireccionar(string $url) {
+    $id = $_GET["id"];
+    // Sanitizamos el parametro de querystring
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    // Validamos que sea un id valido
+    if (!$id) {
+        header("Location: {$url}");
+    }
+
+    return $id;
 }
