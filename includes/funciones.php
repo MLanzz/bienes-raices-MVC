@@ -54,6 +54,9 @@ function mostrarMensajeError($codigo) : string{
         case 5: 
             $mensaje = "Vendedor actualizado correctamente";
             break;
+        case 6: 
+            $mensaje = "Vendedor eliminado correctamente";
+            break;
         default:
             $mensaje = "";
             break;
