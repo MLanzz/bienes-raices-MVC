@@ -3,7 +3,7 @@
 
 @include m.tablet {
     .contenedor-anuncio {
-        @include m.grid(3, 2rem)
+        @include m.grid(3, 2rem);
     }
 }
 

@@ -24,7 +24,7 @@
     
     // No se requiere estar autenticado para visitar estas urls
     $router->get("/", [PaginasController::class, "index"]);
-    $router->get("/nosotros", [PaginasController::class, "index"]);
+    $router->get("/nosotros", [PaginasController::class, "nosotros"]);
     $router->get("/propiedades", [PaginasController::class, "propiedades"]);
     $router->get("/propiedad", [PaginasController::class, "propiedad"]);
     $router->get("/blog", [PaginasController::class, "blog"]);
