@@ -1,10 +1,6 @@
 <?php
 
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-
-    $auth = !empty($_SESSION);
+    $auth = $_SESSION['login'] ?? false;
 
     if(!isset($inicio)) {
         $inicio = false;
@@ -49,11 +45,11 @@
                                 Contacto
                             </a>
                             <?php if ($auth): ?>
-                                <a href="cerrar-sesion.php">
+                                <a href="/logout">
                                     Cerrar sesión
                                 </a>
                             <?php else: ?>
-                                <a href="login.php">
+                                <a href="/login">
                                     Iniciar sesión
                                 </a>
                             <?php endif; ?>
