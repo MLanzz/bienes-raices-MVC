@@ -1,5 +1,6 @@
 <?php 
-require_once __DIR__ . "/../includes/app.php";
+// require_once __DIR__ . "/../includes/app.php";
+echo "funciona git";
 
 // $password = "123456";
 // $passwordHash = password_hash($password, PASSWORD_DEFAULT);
